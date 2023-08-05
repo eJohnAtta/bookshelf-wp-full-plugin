@@ -8,7 +8,12 @@ To ensure a seamless and dynamic user experience, the wishlist and collection pr
 
 On hover, users can see more details about a book, providing a delightful browsing experience. Overall, the Bookshelf plugin provides a robust and comprehensive solution for readers to organize, share, and discover new books effortlessly.
 
-<h4>installation instructions:</h4>
+<h4>Installation Instructions:</h4>
 
 Just install and activate the plugin and everything will be set automatically.
 Note: you might need to flush your permalinks.
+
+<h4> What next to add: </h4>
+
+Create embedded login and register form
+add options page to control the system

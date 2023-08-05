@@ -44,26 +44,6 @@ function bookshelf_custom_book_archive_template($template) {
 }
 add_filter('archive_template', 'bookshelf_custom_book_archive_template');
 
-// Register pages template
-function bookshelf_custom_template_for_page($template) {
-    $page_id = get_the_ID();
-    if($page_id && is_page($page_id)) {
-            // Get the path to the custom template file in the plugin directory
-            $custom_template = plugin_dir_path(__FILE__);
-            if($page_id == get_option('bookshelf_collection_page'))  $custom_template .= 'templates/collections-page.php';
-            elseif($page_id == get_option('bookshelf_wishlist_page')) $custom_template .= 'templates/wishlist-page.php';
-            else return $template;
-            // Check if the custom template file exists
-            if (file_exists($custom_template)) {
-                // Return the path to the custom template file
-                return $custom_template;
-            }
-        
-    }
-    return $template;
-}
-// add_filter('template_include', 'bookshelf_custom_template_for_page');
-
 function bookshelf_load_collections_template($template) {
     if (get_query_var('bookshelf-collections')) {
         $template = plugin_dir_path(__FILE__) . 'templates/taxonomy-collection.php';
