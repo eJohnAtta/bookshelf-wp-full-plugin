@@ -16,4 +16,4 @@ Note: you might need to flush your permalinks.
 <h4> What next to add: </h4>
 
 Create embedded login and register form
-add options page to control the system
+Add options page to control the system
