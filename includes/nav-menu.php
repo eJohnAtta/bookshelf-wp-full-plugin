@@ -65,6 +65,24 @@ function bookshelf_render_menu_metabox( $object, $args ) {
         'xfn' => '',
     );
 
+    $books_item = (object) array(
+        'ID' => -4,
+        'db_id' => 0,
+        'menu_item_parent' => 0,
+        'object_id' => 2,
+        'post_parent' => 0,
+        'type' => 'custom',
+        'object' => 'custom',
+        'type_label' => 'My Bookshelf Plugin',
+        'title' => __('Books'),
+        'url' => home_url( '/books/' ),
+        'target' => '',
+        'attr_title' => '',
+        'description' => '',
+        'classes' => array(),
+        'xfn' => '',
+    );
+
     $menu_items = wp_get_nav_menu_items( $nav_menu_selected_id );
     $menu_items = is_array( $menu_items ) ? $menu_items : array();
 
@@ -73,7 +91,7 @@ function bookshelf_render_menu_metabox( $object, $args ) {
         return ! in_array( $item->object, array( 'page', 'post', 'custom' ) );
     });
 
-    array_unshift( $menu_items, $wishlist_item, $collection_item, $add_book_item );
+    array_unshift( $menu_items, $wishlist_item, $collection_item, $add_book_item, $books_item  );
 
     $db_fields = false;
     $walker = new Walker_Nav_Menu_Checklist( $db_fields );
