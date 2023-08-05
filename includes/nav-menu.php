@@ -20,7 +20,7 @@ function bookshelf_render_menu_metabox( $object, $args ) {
         'type' => 'custom',
         'object' => 'custom',
         'type_label' => 'My Bookshelf Plugin',
-        'title' => 'Wishlist',
+        'title' => __('Wishlist'),
         'url' => home_url( '/bookshelf-wishlist/' ),
         'target' => '',
         'attr_title' => '',
@@ -38,8 +38,26 @@ function bookshelf_render_menu_metabox( $object, $args ) {
         'type' => 'custom',
         'object' => 'custom',
         'type_label' => 'My Bookshelf Plugin',
-        'title' => 'Collections',
+        'title' => __('Collections'),
         'url' => home_url( '/bookshelf-collections/' ),
+        'target' => '',
+        'attr_title' => '',
+        'description' => '',
+        'classes' => array(),
+        'xfn' => '',
+    );
+
+    $add_book_item = (object) array(
+        'ID' => -3,
+        'db_id' => 0,
+        'menu_item_parent' => 0,
+        'object_id' => 2,
+        'post_parent' => 0,
+        'type' => 'custom',
+        'object' => 'custom',
+        'type_label' => 'My Bookshelf Plugin',
+        'title' => __('Add Book'),
+        'url' => home_url( '/bookshelf-add-book/' ),
         'target' => '',
         'attr_title' => '',
         'description' => '',
@@ -55,7 +73,7 @@ function bookshelf_render_menu_metabox( $object, $args ) {
         return ! in_array( $item->object, array( 'page', 'post', 'custom' ) );
     });
 
-    array_unshift( $menu_items, $wishlist_item, $collection_item );
+    array_unshift( $menu_items, $wishlist_item, $collection_item, $add_book_item );
 
     $db_fields = false;
     $walker = new Walker_Nav_Menu_Checklist( $db_fields );

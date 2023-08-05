@@ -62,16 +62,17 @@ function bookshelf_custom_template_for_page($template) {
     }
     return $template;
 }
-add_filter('template_include', 'bookshelf_custom_template_for_page');
+// add_filter('template_include', 'bookshelf_custom_template_for_page');
 
 function bookshelf_load_collections_template($template) {
     if (get_query_var('bookshelf-collections')) {
-        // Use the custom template file for bookshelf collections from your plugin directory
         $template = plugin_dir_path(__FILE__) . 'templates/taxonomy-collection.php';
     }
-    if (get_query_var('bookshelf-wishlist')) {
-        // Use the custom template file for bookshelf wishlist from your plugin directory
+    elseif (get_query_var('bookshelf-wishlist')) {
         $template = plugin_dir_path(__FILE__) . 'templates/wishlist-page.php';
+    }
+    elseif (get_query_var('bookshelf-add-book')) {
+        $template = plugin_dir_path(__FILE__) . 'templates/add-book-page.php';
     }
     return $template;
 }

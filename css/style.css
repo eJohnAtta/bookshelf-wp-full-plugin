@@ -162,6 +162,15 @@
     color: #fff; /* Custom text color on hover, you can change it as needed */
 }
 
+.bookshelf-add-book-cta-wrapper{
+    flex-wrap: wrap;
+    gap:30px;
+    padding:40px;
+    margin:20px;
+    border:1px solid lightgray;
+    border-radius: 4px;
+
+}
 @media (max-width: 480px) {
     .bookshelf-share-buttons a, .bookshelf-share-buttons button {
         display: none;

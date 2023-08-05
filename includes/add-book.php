@@ -15,7 +15,7 @@ function book_submission_form() {
         <input type="text" name="bookshelf_book_title" id="title" required>
 
         <label for="bookshelf_book_description">Description:</label>
-        <textarea name="bookshelf_book_description" id="description" rows="4"></textarea>
+        <textarea name="bookshelf_book_description" id="description" rows="4" required></textarea>
 
         <label for="bookshelf_book_author">Author:</label>
         <select name="bookshelf_book_author[]" multiple="multiple" required>
@@ -91,9 +91,9 @@ function book_submission_form() {
         });
     });
     </script>
-    <?php var_dump($_POST);
+    <?php
     return ob_get_clean();
-    // var_dump($_POST);
+    
 }
 add_shortcode('book_submission_form', 'book_submission_form');
 
