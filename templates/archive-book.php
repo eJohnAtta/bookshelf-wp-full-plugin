@@ -63,7 +63,7 @@ get_header(); ?>
             <div class="bookshelf-add-book-cta-wrapper bookshelf-flex-center">
                 <h4> <?php _e("You got a new book?") ?></h4>
                 <h5><?php _e("Add it to your collection now!")?></h5>
-                <button><a href="<?php  home_url( '/bookshelf-add-book/' ) ?>"><?php _e("Add Book") ?></a></button>
+                <button><a href="<?php  echo home_url( '/bookshelf-add-book/' ) ?>"><?php _e("Add Book") ?></a></button>
             </div>
         <?php }
     } else {

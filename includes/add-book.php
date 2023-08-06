@@ -3,71 +3,128 @@
 
 function book_submission_form() {
     ob_start();
+    wp_enqueue_media();
     if(!is_user_logged_in(  )){
         echo 'you should login';
         return ob_get_clean();
     }
-    wp_enqueue_media();
     display_book_submission_message(); ?>
 
     <form id="book-submission-form" method="post" enctype="multipart/form-data">
-        <label for="bookshelf_book_title">Title:</label>
-        <input type="text" name="bookshelf_book_title" id="title" required>
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_title">Title:</label>
+            <input type="text" name="bookshelf_book_title" id="title" required>
+        </div>
+         
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_description">Description:</label>
+            <textarea name="bookshelf_book_description" id="description" rows="4" required></textarea>
+        </div>
 
-        <label for="bookshelf_book_description">Description:</label>
-        <textarea name="bookshelf_book_description" id="description" rows="4" required></textarea>
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_author">Author:</label>
+            <select id="bookshelf_book_author" name="bookshelf_book_author[]" multiple="multiple" required>
+                <option value="">-- Select Author --</option>
+                <?php
+                $authors = get_terms(array(
+                    'taxonomy' => 'author',
+                    'hide_empty' => false,
+                ));
+                foreach ($authors as $author) {
+                    echo '<option value="' . $author->name . '">' . $author->name . '</option>';
+                } ?>
+            </select>
+            <a class="bookshelf-add-book-toggler author-toggle" href="#">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                <?php _e("Add More Authors")?>
+            </a>
+            <div id="bookshelf-form-author-others" class="bookshelf-form-others bookshelf-hidden">
+                <input type="text" name="bookshelf_book_author_other" id="bookshelf_book_author_other"  placeholder="Enter new author">
+                <button type="button" id="bookshelf_add_author_button"> Add New Author</button>
+            </div>
+        </div>
+        
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_genre">Genre:</label>
+            <select id="bookshelf_book_genre" name="bookshelf_book_genre[]" multiple="multiple" required>
+                <option value="">-- Select Genre --</option>
+                <?php
+                $genres = get_terms(array(
+                    'taxonomy' => 'genre',
+                    'hide_empty' => false,
+                ));
+                foreach ($genres as $genre) {
+                    echo '<option value="' . $genre->name . '">' . $genre->name . '</option>';
+                } ?>
+            </select>
+            <a class="bookshelf-add-book-toggler genre-toggle" href="#">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                <?php _e("Add More Genres")?>
+            </a>
+            <div id="bookshelf-form-genre-others" class="bookshelf-form-others bookshelf-hidden">
+                <input type="text" name="bookshelf_book_genre_other" id="bookshelf_book_genre_other" placeholder="Enter new genre">
+                <button type="button" id="bookshelf_add_genre_button" >Add Genre</button>
+            </div>
+        </div>
 
-        <label for="bookshelf_book_author">Author:</label>
-        <select name="bookshelf_book_author[]" multiple="multiple" required>
-            <option value="">-- Select Author --</option>
-            <?php
-            $authors = get_terms(array(
-                'taxonomy' => 'author',
-                'hide_empty' => false,
-            ));
-            foreach ($authors as $author) {
-                echo '<option value="' . $author->term_id . '">' . $author->name . '</option>';
-            }
-            ?>
-        </select>
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_publication_year">Publication Year:</label>
+            <select name="bookshelf_book_publication_year" required>
+                <option value="">-- Select Publication Year --</option>
+                <?php
+                $publication_years = get_terms(array(
+                    'taxonomy' => 'publication_year',
+                    'hide_empty' => false,
+                ));
+                foreach ($publication_years as $year) {
+                    echo '<option value="' . $year->term_id . '">' . $year->name . '</option>';
+                }
+                ?>
+            </select>
+        </div>
 
-        <label for="bookshelf_book_genre">Genre:</label>
-        <select name="bookshelf_book_genre[]" multiple="multiple" required>
-            <option value="">-- Select Genre --</option>
-            <?php
-            $genres = get_terms(array(
-                'taxonomy' => 'genre',
-                'hide_empty' => false,
-            ));
-            foreach ($genres as $genre) {
-                echo '<option value="' . $genre->term_id . '">' . $genre->name . '</option>';
-            }
-            ?>
-        </select>
-
-        <label for="bookshelf_book_publication_year">Publication Year:</label>
-        <select name="bookshelf_book_publication_year" required>
-            <option value="">-- Select Publication Year --</option>
-            <?php
-            $publication_years = get_terms(array(
-                'taxonomy' => 'publication_year',
-                'hide_empty' => false,
-            ));
-            foreach ($publication_years as $year) {
-                echo '<option value="' . $year->term_id . '">' . $year->name . '</option>';
-            }
-            ?>
-        </select>
-
-        <label for="bookshelf_book_cover_image">Cover Image:</label>
-        <input type="hidden" name="bookshelf_book_cover_image_id" id="bookshelf_book_cover_image_id" value="">
-        <button id="bookshelf_upload_cover_image_button" class="button">Select Image</button>
-        <div id="bookshelf_cover_image_preview"></div>
-
+        <div class="bookshelf-add-book-field">
+            <label for="bookshelf_book_cover_image">Cover Image:</label>
+            <input type="hidden" name="bookshelf_book_cover_image_id" id="bookshelf_book_cover_image_id" value="">
+            <button id="bookshelf_upload_cover_image_button" class="button">Select Image</button>
+            <div id="bookshelf_cover_image_preview"></div>
+        </div>
+        
         <input type="submit" name="bookshelf_book_submit_book" value="Submit">
     </form>
+    
     <script>
     jQuery(document).ready(function($) {
+        $('.bookshelf-add-book-toggler').on('click', function(e) {
+            e.preventDefault();
+            if($(this).hasClass('genre-toggle')){
+                $('#bookshelf-form-genre-others').removeClass("bookshelf-hidden");
+            }
+            else if($(this).hasClass('author-toggle')){
+                $('#bookshelf-form-author-others').removeClass("bookshelf-hidden");
+            }
+        });
+        $('#bookshelf_add_author_button').on('click', function(e) {
+            e.preventDefault();
+            var newAuthor = $('#bookshelf_book_author_other').val().trim();
+            if (newAuthor !== '') {
+                var $newOption = $('<option/>', { value: newAuthor, text: newAuthor });
+                $newOption.attr('selected', 'selected');
+                $('#bookshelf_book_author').append($newOption);
+                $('#bookshelf_book_author_other').val('');
+            }
+        });
+
+        $('#bookshelf_add_genre_button').on('click', function(e) {
+        e.preventDefault();
+        var newGenre = $('#bookshelf_book_genre_other').val().trim();
+        if (newGenre !== '') {
+                var $newOption = $('<option/>', { value: newGenre, text: newGenre });
+                $newOption.attr('selected', 'selected');
+                $('#bookshelf_book_genre').append($newOption);
+                $('#bookshelf_book_genre_other').val('');
+            }
+        });
         $('#bookshelf_upload_cover_image_button').on('click', function(e) {
             e.preventDefault();
             var frame = wp.media({
@@ -91,6 +148,7 @@ function book_submission_form() {
         });
     });
     </script>
+    
     <?php
     return ob_get_clean();
     
@@ -101,8 +159,8 @@ add_shortcode('book_submission_form', 'book_submission_form');
 function process_book_submission_form() {
     if (isset($_POST['bookshelf_book_submit_book']) && isset($_POST['bookshelf_book_title'])) {
         $title = sanitize_text_field($_POST['bookshelf_book_title']);
-        $author = !empty($_POST['bookshelf_book_author']) ? array_map('intval', $_POST['bookshelf_book_author']) : array();
-        $genre = !empty($_POST['bookshelf_book_genre']) ? array_map('intval', $_POST['bookshelf_book_genre']) : array();
+        $author = !empty($_POST['bookshelf_book_author']) ? $_POST['bookshelf_book_author']: array();
+        $genre = !empty($_POST['bookshelf_book_genre']) ? $_POST['bookshelf_book_genre'] : array();
         $publication_year = !empty($_POST['bookshelf_book_publication_year']) ?  intval($_POST['bookshelf_book_publication_year']) :'';
         $description = wp_kses_post($_POST['bookshelf_book_description'] ?? '');
 
@@ -116,10 +174,7 @@ function process_book_submission_form() {
         $book_id = wp_insert_post($new_book);
         $current_url = remove_query_arg('success', home_url( $_SERVER['REQUEST_URI'] ));
         
-        
-        var_dump( $_SERVER['QUERY_STRING']);
-        if ($book_id) {
-            
+        if ($book_id) {    
             $current_user = wp_get_current_user();
             $collection_term_name = $current_user->user_login;
 
@@ -139,11 +194,47 @@ function process_book_submission_form() {
             }
             
             if (!empty($author)) {
-                wp_set_object_terms($book_id, $author, 'author');
+                $author_term_ids = array();
+                foreach ($author as $author_term) {
+                    if (!term_exists($author_term, 'author')) {
+                        // If the term doesn't exist, insert it as a new term
+                        $new_author_term = wp_insert_term($author_term, 'author');
+                        if (!is_wp_error($new_author_term)) {
+                            $author_term_ids[] = $new_author_term['term_id'];
+                        }
+                    } else {
+                        // If the term exists, get its term ID and add it to the list of term IDs
+                        $term = get_term_by('name', $author_term, 'author');
+                        if ($term) {
+                            $author_term_ids[] = $term->term_id;
+                        }
+                    }
+                }
+                wp_set_object_terms($book_id, $author_term_ids, 'author');
             }
+            
+            
             if (!empty($genre)) {
-                wp_set_object_terms($book_id, $genre, 'genre');
+                $genre_term_ids = array();
+                foreach ($genre as $genre_term) {
+                    if (!term_exists($genre_term, 'genre')) {
+                        // If the term doesn't exist, insert it as a new term
+                        $new_genre_term = wp_insert_term($genre_term, 'genre');
+                        if (!is_wp_error($new_genre_term)) {
+                            $genre_term_ids[] = $new_genre_term['term_id'];
+                        }
+                    } else {
+                        // If the term exists, get its term ID and add it to the list of term IDs
+                        $gterm = get_term_by('name', $genre_term, 'genre');
+                        if ($gterm) {
+                            $genre_term_ids[] = $gterm->term_id;
+                        }
+                    }
+                }
+                wp_set_object_terms($book_id, $genre_term_ids, 'genre');
             }
+            
+
             if (!empty($publication_year)) {
                 wp_set_object_terms($book_id, $publication_year, 'publication_year');
             }
@@ -154,6 +245,7 @@ function process_book_submission_form() {
                     set_post_thumbnail($book_id, $cover_image_id);
                 }
             }
+
             wp_redirect($current_url . '?success=1'); // Redirect after successful submission
             
         }

@@ -8,7 +8,7 @@
  ?>
  
  <div class="bookshelf-main-container">
-     <h1>Collection Taxonomy Terms</h1>
+     <h1>Collections</h1>
      <?php
      $taxonomy = 'collection';
      if(is_user_logged_in(  )){

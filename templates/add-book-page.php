@@ -10,8 +10,10 @@ get_header(); ?>
         $current_user = wp_get_current_user(  );
         echo '<h4>' . __('Hi, ') . $current_user->display_name .'</h4>';
         echo '<h5>' . __('Use this form to add a new book for your collection') . '</h5>';
-        echo do_shortcode("[book_submission_form]");
+        
+        echo book_submission_form();
     }
     else _e('Please login or Register');
 
-?></div>
+?></div> <?php 
+get_footer(); ?>

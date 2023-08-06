@@ -4,11 +4,11 @@
 function bookshelf_enqueue_my_scripts() {
     $plugin_url = plugin_dir_url(__FILE__);
     wp_enqueue_style( 'bookshelf-style', $plugin_url . 'css/style.css' );
+    wp_enqueue_script('bookshelf-main', $plugin_url . 'scripts/bookshelf-script.js', array('jquery'), '1.0', true);
+
     wp_enqueue_script('add-book-to-wishlist', $plugin_url . 'scripts/ajax-add-to-wishlist.js', array('jquery'), '1.0', true);
     wp_enqueue_script('add-book-to-collection', $plugin_url . 'scripts/ajax-add-to-collection.js', array('jquery'), '1.0', true);
-    if(is_tax('collection')) wp_enqueue_script('social-share', $plugin_url . 'scripts/social-share.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('book-info-ajax', $plugin_url . 'scripts/book-info.js', array('jquery'), '1.0', true);
-
+    
     wp_localize_script('add-book-to-wishlist', 'my_ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
     wp_localize_script('add-book-to-collection', 'my_book_ajax_object', array( 'ajax_url' => admin_url('admin-ajax.php'),));
 
@@ -18,6 +18,7 @@ function bookshelf_enqueue_my_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'bookshelf_enqueue_my_scripts');
+
 
 
 // Register the book single template
