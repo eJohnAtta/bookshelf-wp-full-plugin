@@ -1,3 +1,9 @@
+![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/481bb3d1-7b0a-462e-a0cf-8c11c51b3df2)
+![Uploading screencapture-bookshelf-local-books-2023-08-06-11_38_27.png…]()
+![Uploading Screenshot 2023-08-06 113904.png…]()
+![Uploading screencapture-bookshelf-local-bookshelf-collections-2023-08-06-11_39_25.png…]()
+![Uploading screencapture-bookshelf-local-books-book-5-2023-08-06-11_47_52.png…]()
+![Uploading screencapture-bookshelf-local-collection-john-2023-08-06-11_49_45.png…]()
 # bookshelf-wp-full-plugin
 Bookshelf is a WordPress plugin designed for book enthusiasts. It allows users to showcase the books they've read and create a shareable list to connect with others. By sharing their lists, readers can discover new and captivating book titles that pique their interest. Additionally, the plugin lets users maintain a wishlist of books they plan to read, helping them remember which ones to purchase next. With Bookshelf, readers can easily explore the world of literature and connect with like-minded book lovers.
 
@@ -17,3 +23,9 @@ Note: you might need to flush your permalinks.
 
 Create embedded login and register form
 Add options page to control the system
+Enhance UI
+
+<h4>Screenshots:</h4>
+![Uploading screencapture-bookshelf-local-bookshelf-wishlist-2023-08-06-11_49_57.png…]()
+![Uploading Screenshot 2023-08-06 115042.png…]()
+
