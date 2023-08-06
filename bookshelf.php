@@ -36,6 +36,7 @@ add_filter('single_template', 'bookshelf_custom_book_template');
 // Register the book archive template
 function bookshelf_custom_book_archive_template($template) {
     if (is_archive('book') ) {
+        
         $template_path = plugin_dir_path(__FILE__) . 'templates/archive-book.php';
         if (file_exists($template_path)) {
             return $template_path;

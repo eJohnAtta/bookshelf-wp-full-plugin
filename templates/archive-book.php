@@ -20,7 +20,7 @@ get_header(); ?>
                         <div class="bookshelf-book-loop-title bookshelf-flex-center bookshelf-title-wishlist-section"><?php
                             the_title('<h3>', '</h3>');
                             add_to_wishlist_form($post_id); 
-                            bookshelf_add_book_to_collection_form($post_id)
+                            bookshelf_add_book_to_collection_form($post_id);
                         ?></div>
                     </div>
                     

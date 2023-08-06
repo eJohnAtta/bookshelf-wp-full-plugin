@@ -13,9 +13,11 @@ get_header(); ?>
         return;
     }
     $ids_in_wishlist = get_user_meta($user_id, 'bookshelf_wishlist_books' , true);
+    
     if($ids_in_wishlist){ ?>
         <div class="bookshelf-books-loop-wrapper wishlist"> <?php
-            foreach($ids_in_wishlist as $book_id){ ?>
+            foreach($ids_in_wishlist as $book_id){
+                 ?>
                 <div id="bookshelf-book-loop-container-<?php echo $book_id;?>" class="bookshelf-book-loop-container" data-post-id="<?php echo $book_id ?>">
                 <div class="bookshelf-book-loop-wrapper">
                     <div class="bookshelf-book-loop-head"><?php

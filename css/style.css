@@ -178,12 +178,13 @@
 }
 
 /* single */
-.bookshelf-book-single-wrapper{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
-    gap: 2%;
+@media(min-width:768px){
+    .bookshelf-book-single-wrapper{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+        gap: 2%;
+    }
 }
-
 .bookshelf-book-single-img{
     width: 100%;
     height: 275px;
@@ -237,4 +238,9 @@
 /* wishlist */
 .bookshelf-add-to-wishlist.active i::before{
     content: "\f004";
+}
+
+/* form */
+.bookshelf-add-book-field{
+    margin-bottom: 10px;
 }

@@ -155,7 +155,6 @@ function book_submission_form() {
 }
 add_shortcode('book_submission_form', 'book_submission_form');
 
-
 function process_book_submission_form() {
     if (isset($_POST['bookshelf_book_submit_book']) && isset($_POST['bookshelf_book_title'])) {
         $title = sanitize_text_field($_POST['bookshelf_book_title']);
@@ -275,4 +274,13 @@ function add_upload_capability_to_subscriber_role() {
 }
 add_action('admin_init', 'add_upload_capability_to_subscriber_role');
 
+// Add the filter to restrict media library items to the current user's uploads
+function bookshelf_restrict_media_library_to_user_uploads($query_args) {
+    if (!current_user_can('manage_options')) {
+        $current_user_id = get_current_user_id();
+        $query_args['author'] = $current_user_id;
+    }
+    return $query_args;
+}
+add_filter('ajax_query_attachments_args', 'bookshelf_restrict_media_library_to_user_uploads');
 ?>

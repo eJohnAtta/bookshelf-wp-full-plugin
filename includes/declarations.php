@@ -85,6 +85,7 @@ function custom_taxonomy_author() {
         'show_admin_column' => true,
         'show_in_nav_menus' => true,
         'show_tagcloud' => true,
+        'rewrite' => array('slug' => 'book-author'),
     );
     register_taxonomy('author', array('book'), $args);
 }
@@ -125,6 +126,7 @@ function custom_taxonomy_publication_year() {
         'show_admin_column' => true,
         'show_in_nav_menus' => true,
         'show_tagcloud' => true,
+        'rewrite' => array('slug' => 'publication-year')
     );
     register_taxonomy('publication_year', array('book'), $args);
 }
