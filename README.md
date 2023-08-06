@@ -1,3 +1,9 @@
+![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/bad1704e-7ecc-42ee-bfaa-1995bc34c75b)
+![Uploading screencapture-bookshelf-local-books-2023-08-06-11_38_27.png…]()
+![Uploading Screenshot 2023-08-06 113904.png…]()
+![Uploading screencapture-bookshelf-local-bookshelf-collections-2023-08-06-11_39_25.png…]()
+![Uploading screencapture-bookshelf-local-books-book-5-2023-08-06-11_47_52.png…]()
+![Uploading screencapture-bookshelf-local-collection-john-2023-08-06-11_49_45.png…]()
 ![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/481bb3d1-7b0a-462e-a0cf-8c11c51b3df2)
 ![Uploading screencapture-bookshelf-local-books-2023-08-06-11_38_27.png…]()
 ![Uploading Screenshot 2023-08-06 113904.png…]()
@@ -28,4 +34,5 @@ Enhance UI
 <h4>Screenshots:</h4>
 ![Uploading screencapture-bookshelf-local-bookshelf-wishlist-2023-08-06-11_49_57.png…]()
 ![Uploading Screenshot 2023-08-06 115042.png…]()
+
 
