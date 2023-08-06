@@ -1,15 +1,3 @@
-![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/bad1704e-7ecc-42ee-bfaa-1995bc34c75b)
-![Uploading screencapture-bookshelf-local-books-2023-08-06-11_38_27.png…]()
-![Uploading Screenshot 2023-08-06 113904.png…]()
-![Uploading screencapture-bookshelf-local-bookshelf-collections-2023-08-06-11_39_25.png…]()
-![Uploading screencapture-bookshelf-local-books-book-5-2023-08-06-11_47_52.png…]()
-![Uploading screencapture-bookshelf-local-collection-john-2023-08-06-11_49_45.png…]()
-![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/481bb3d1-7b0a-462e-a0cf-8c11c51b3df2)
-![Uploading screencapture-bookshelf-local-books-2023-08-06-11_38_27.png…]()
-![Uploading Screenshot 2023-08-06 113904.png…]()
-![Uploading screencapture-bookshelf-local-bookshelf-collections-2023-08-06-11_39_25.png…]()
-![Uploading screencapture-bookshelf-local-books-book-5-2023-08-06-11_47_52.png…]()
-![Uploading screencapture-bookshelf-local-collection-john-2023-08-06-11_49_45.png…]()
 # bookshelf-wp-full-plugin
 Bookshelf is a WordPress plugin designed for book enthusiasts. It allows users to showcase the books they've read and create a shareable list to connect with others. By sharing their lists, readers can discover new and captivating book titles that pique their interest. Additionally, the plugin lets users maintain a wishlist of books they plan to read, helping them remember which ones to purchase next. With Bookshelf, readers can easily explore the world of literature and connect with like-minded book lovers.
 
@@ -31,8 +19,27 @@ Create embedded login and register form
 Add options page to control the system
 Enhance UI
 
-<h4>Screenshots:</h4>
-![Uploading screencapture-bookshelf-local-bookshelf-wishlist-2023-08-06-11_49_57.png…]()
-![Uploading Screenshot 2023-08-06 115042.png…]()
+![screencapture-bookshelf-local-books-2023-08-06-11_38_27](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/ad975780-2774-4a25-b783-22c55ae40c6d)
+
+![Screenshot 2023-08-06 113904](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/84901d56-c7a4-453f-a78a-f98253f79e7d)
+
+![screencapture-bookshelf-local-bookshelf-add-book-2023-08-06-11_36_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/56624930-56fe-44dd-b86b-60a5a764acd2)
+
+![screencapture-bookshelf-local-books-book-5-2023-08-06-11_47_52](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/8bf9000f-fcbf-41c5-b8c1-d049e6414668)
+
+![screencapture-bookshelf-local-bookshelf-collections-2023-08-06-11_39_25](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/bb0163ea-7fbb-4360-9dd5-c19ac2b06434)
+
+![screencapture-bookshelf-local-collection-john-2023-08-06-11_49_45](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/ba59e49b-9e3d-49bb-9c52-0a77e5105ac6)
+
+![screencapture-bookshelf-local-bookshelf-wishlist-2023-08-06-11_49_57](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/802aa41f-51db-47bb-8ad4-c251e543961f)
+
+![Screenshot 2023-08-06 115042](https://github.com/eJohnAtta/bookshelf-wp-full-plugin/assets/63154113/9f23ecc3-cc63-48f9-85b2-315ae7f72c21)
+
+
+
+
+
+
+
 
 
